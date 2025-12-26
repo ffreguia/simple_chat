@@ -1,0 +1,93 @@
+/* Basic styles to keep things clear and readable for beginners */
+:root{
+  --bg:#0f1724; /* dark background for contrast */
+  --card:#0b1220;
+  --sidebar:#07142a;
+  --user:#7c3aed;
+  --assistant:#111827;
+  --text:#e6eef8;
+  --muted:#9aa6b2;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{background:linear-gradient(180deg,#071022 0%, #0b1323 100%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:24px}
+
+.container{width:100%;max-width:1100px;background:var(--card);border-radius:12px;padding:0;box-shadow:0 6px 18px rgba(2,6,23,0.6);overflow:hidden}
+
+/* Dashboard layout */
+.dashboard{display:flex;min-height:70vh}
+.sidebar{width:320px;background:var(--sidebar);padding:14px;display:flex;flex-direction:column;gap:10px}
+.brand{font-weight:700;font-size:18px;margin-bottom:6px}
+.workspace-switch{font-size:13px;color:var(--muted)}
+.sidebar-tabs{display:flex;gap:6px;margin:6px 0}
+.tab{background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--text);padding:6px 8px;border-radius:8px;cursor:pointer}
+.tab.active{background:rgba(255,255,255,0.03)}
+/* Make sidebar content take full available vertical space for single-chat mode */
+.sidebar-content{flex:1;overflow:auto;padding-top:6px}
+
+.sidebar-content{flex:1;overflow:auto;padding-top:6px}
+.list{display:flex;flex-direction:column;gap:8px}
+.list.hidden{display:none}
+.sidebar-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.file-input{display:none}
+.file-upload-label{display:inline-block}
+.file-upload-label.small{cursor:pointer}
+.small{font-size:13px;padding:6px 8px;border-radius:8px;border:none;cursor:pointer}
+.small.ghost{background:transparent;border:1px solid rgba(255,255,255,0.03)}
+/* ensure long item names don't push buttons out of place */
+.item{padding:8px;border-radius:8px;background:rgba(255,255,255,0.01);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;overflow:hidden}
+.item .item-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+
+.file-item{display:flex;align-items:center;justify-content:space-between;padding:6px;border-radius:8px;background:rgba(255,255,255,0.01)}
+.file-item .file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px}
+.attach-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:6px;border-radius:6px;color:var(--text);cursor:pointer}
+.attach-btn:hover{background:rgba(255,255,255,0.02)}
+.file-link{color:var(--muted);text-decoration:underline;cursor:pointer}
+
+.main{flex:1;padding:14px;display:flex;flex-direction:column}
+.main-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.02)}
+.chat-title{font-weight:700}
+.chat-actions{display:flex;gap:8px}
+
+.messages{flex:1;min-height:320px;max-height:60vh;overflow:auto;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);display:flex;flex-direction:column;gap:8px}
+
+.message{display:inline-block;padding:10px 12px;border-radius:12px;max-width:80%}
+.message.user{background:linear-gradient(90deg,var(--user),#5b21b6);color:white;border-bottom-right-radius:2px;align-self:flex-end}
+.message.assistant{background:#0f1724;color:var(--text);border:1px solid rgba(255,255,255,0.03);align-self:flex-start}
+.message .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+
+.input-form{display:flex;gap:8px;margin-top:12px;align-items:center}
+.input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.assistant-select{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.send{background:var(--user);border:none;color:white;padding:8px 12px;border-radius:10px;cursor:pointer}
+.send:disabled{opacity:0.6;cursor:not-allowed}
+
+.footer{margin-top:10px;color:var(--muted);font-size:12px;text-align:center}
+
+/* Small list item styling */
+.item{padding:8px;border-radius:8px;background:rgba(255,255,255,0.01);cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.item.active{background:rgba(255,255,255,0.02)}
+.item .delete-btn{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:4px;border-radius:6px}
+.item .delete-btn:hover{color:var(--user);background:rgba(255,255,255,0.02)}
+.message.typing{font-style:italic;opacity:0.85}
+.typing-dots{display:inline-block;width:40px;text-align:left}
+.typing-dots span{display:inline-block;animation:typing-dots 1s infinite steps(1)}
+@keyframes typing-dots{0%{transform:translateY(0)}33%{transform:translateY(-2px)}66%{transform:translateY(0)}100%{transform:translateY(-2px)}}
+
+/* Scrollbar small styling for better visibility */
+.messages::-webkit-scrollbar,.sidebar-content::-webkit-scrollbar{width:8px}
+.messages::-webkit-scrollbar-thumb,.sidebar-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.03);border-radius:8px}
+
+@media (max-width:820px){
+  .container{max-width:100%}
+  .sidebar{width:220px}
+}
+
+@media (max-width:640px){
+  .sidebar{display:none}
+  .dashboard{flex-direction:column}
+  .main{padding:12px}
+}
+

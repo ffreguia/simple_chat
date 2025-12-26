@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Light Chat — Simple Frontend Example</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      Simple chat UI for beginners.
+      No frameworks, purely HTML/CSS/JS.
+      Files: index.html, styles.css, app.js
+    -->
+
+    <main class="container dashboard">
+      <aside class="sidebar">
+        <div class="workspace">
+          <div class="brand">Light Chat</div>
+          <div class="workspace-switch">Default Workspace</div>
+        </div>
+
+        <div class="sidebar-tabs">
+          <button class="tab active" data-tab="files">Files</button>
+          <button class="tab" data-tab="assistants">Assistants</button>
+        </div>
+
+        <div class="sidebar-content">
+          <div id="files-list" class="list"></div>
+          <div id="assistants-list" class="list hidden"></div>
+        </div>
+
+        <div class="sidebar-actions">
+          <input id="file-input" class="file-input" type="file" title="Upload a file" />
+          <label for="file-input" class="small file-upload-label">Upload</label>
+          <button id="clear-all-btn" class="small ghost">Clear all</button>
+        </div>
+      </aside>
+
+      <section class="main">
+        <div class="main-top">
+          <div id="chat-title" class="chat-title">Chat</div>
+          <div class="chat-actions">
+            <button id="toggle-sidebar" class="small ghost">Toggle</button>
+          </div>
+        </div>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="input-form" class="input-form" onsubmit="return false;">
+          <input
+            id="message-input"
+            class="input"
+            type="text"
+            placeholder="Ask anything — press Enter to send"
+            aria-label="Message"
+            autocomplete="off"
+          />
+
+          <select id="assistant-select" class="assistant-select" aria-label="Assistant">
+            <option value="default">Default Assistant</option>
+            <option value="helpful">Helpful Assistant</option>
+          </select>
+
+          <button id="send-button" class="send">Send</button>
+        </form>
+
+        <footer class="footer">
+          <small class="muted">Light Chat — simplified UI inspired by Chatbot UI</small>
+        </footer>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
