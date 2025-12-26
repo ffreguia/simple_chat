@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react'
 import FilesList from './FilesList'
-import '../styles/Sidebar.css'
 
 /**
  * Sidebar Component

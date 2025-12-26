@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Sidebar from './components/Sidebar'
 import ChatWindow from './components/ChatWindow'
-import './styles/App.css'
 
 const STORAGE_KEY = 'light_chat_state_v2'
 

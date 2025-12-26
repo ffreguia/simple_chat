@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react'
 import MessageList from './MessageList'
 import InputForm from './InputForm'
-import '../styles/ChatWindow.css'
 
 /**
  * ChatWindow Component
